@@ -1,5 +1,70 @@
 # Changelog
 
+## [0.36.0](https://github.com/ArcReel/ArcReel/compare/v0.35.0...v0.36.0) (2026-11-04)
+
+
+### ✨ 新功能
+
+* **agent:** 内嵌与外部 Agent 可以查询、上传、选择供应商素材库素材并解除关联 ([374a140](https://github.com/ArcReel/ArcReel/commit/374a1402a3a13651a1d3908db170f9252ab863c9)), closes [#3565](https://github.com/ArcReel/ArcReel/issues/3565)
+* **archive:** 归档带远端图片的真实内容，另一实例导入时按自己的全局设置保存到本地或对象存储 ([f10674f](https://github.com/ArcReel/ArcReel/commit/f10674f175dd9b57c1379d2202bee321f4442db9)), closes [#3569](https://github.com/ArcReel/ArcReel/issues/3569)
+* **archive:** 项目归档带上图片的可用供应商素材关联，导入到同一云账号的实例后生成可以直接使用这些素材 ([a23735f](https://github.com/ArcReel/ArcReel/commit/a23735f0f89a082b01dbd65161135527cd777747)), closes [#3649](https://github.com/ArcReel/ArcReel/issues/3649)
+* **asset-library:** 上传资产图到火山或 BytePlus 素材库，按图片版本管理关联与入库状态 ([4005b27](https://github.com/ArcReel/ArcReel/commit/4005b2746bca2eda5c877e1497f6d74452bb2233)), closes [#3562](https://github.com/ArcReel/ArcReel/issues/3562)
+* **asset-library:** 从火山或 BytePlus 素材库选择已有图片，取回原图保存为资产图新版本并建立关联 ([12ee371](https://github.com/ArcReel/ArcReel/commit/12ee37134ab392581800bae0b2600184ae822039)), closes [#3564](https://github.com/ArcReel/ArcReel/issues/3564)
+* **asset-library:** 全局资产库的图片按存储选择保存到远端并随图片带上供应商素材关联，删除来源后库与已应用的项目照常可用 ([9f81637](https://github.com/ArcReel/ArcReel/commit/9f81637eaafc39ffb2b9d8fe54dc2c365a72b26d)), closes [#3570](https://github.com/ArcReel/ArcReel/issues/3570)
+* **asset-library:** 参考生视频按实际推理凭证使用供应商素材，入库未完成或失败时明确报错 ([91a1759](https://github.com/ArcReel/ArcReel/commit/91a17599f927bc5c348e9c0575f02def39e3a30c)), closes [#3563](https://github.com/ArcReel/ArcReel/issues/3563)
+* **asset-library:** 角色衍生图可以上传到供应商素材库、查看与解除关联，并从素材库选择已有图片 ([8576540](https://github.com/ArcReel/ArcReel/commit/85765409bf846505be8bbd75c58bf8c7943f4792)), closes [#3564](https://github.com/ArcReel/ArcReel/issues/3564)
+* **asset-library:** 设置页配置对象存储与素材库账号并浏览供应商素材 ([5fbc57e](https://github.com/ArcReel/ArcReel/commit/5fbc57eacb6286b979e9f33d835e49bf6f0c6160)), closes [#3561](https://github.com/ArcReel/ArcReel/issues/3561)
+* **billing:** GPT Image 2.5 也能预估输出 token，图片 token 估算按模型条目上的估算基数 ([f3a21ee](https://github.com/ArcReel/ArcReel/commit/f3a21eea4f768a5591f541003e9e546f833334c6)), closes [#3640](https://github.com/ArcReel/ArcReel/issues/3640)
+* **catalog:** 供应商模型列表显示「即将下线」「已下线」，已下线的内置模型不再作候选、默认或被调用 ([6c51896](https://github.com/ArcReel/ArcReel/commit/6c51896a9bd6f0bcdcfae255ec18ea00023db472)), closes [#3621](https://github.com/ArcReel/ArcReel/issues/3621)
+* **catalog:** 模型条目可以记录上线日期、关停日期与官方后继，目录校验拦下带关停日期的默认模型与无效后继 ([a9ecbb6](https://github.com/ArcReel/ArcReel/commit/a9ecbb64f34ed3a2aa48f94f06190b9030eed71b)), closes [#3619](https://github.com/ArcReel/ArcReel/issues/3619)
+* **catalog:** 模型条目可以记录参考图上限、视频输入方式与图片 token 估算基数 ([6d43a64](https://github.com/ArcReel/ArcReel/commit/6d43a6437f6b9572e7569f61a4abc3d54df8a9c3)), closes [#3634](https://github.com/ArcReel/ArcReel/issues/3634)
+* **catalog:** 用户改过的模型条目升级后保留原有的参考图上限、输入方式与 token 估算 ([39d9da4](https://github.com/ArcReel/ArcReel/commit/39d9da4f3a40bedc3bc5d8163bfbb93d3b4982c2)), closes [#3637](https://github.com/ArcReel/ArcReel/issues/3637)
+* **custom-provider:** 自定义供应商的模型对应条目下线后不再作候选或默认，调用直接报下线，不回退默认模型 ([fe52644](https://github.com/ArcReel/ArcReel/commit/fe52644d8818277278b9720ef060c15b0a003a66)), closes [#3622](https://github.com/ArcReel/ArcReel/issues/3622)
+* **image:** 图片参考图上限按模型条目与调用通道取较小值，超出时提交前报错，不再被后端按型号名静默截断 ([756921b](https://github.com/ArcReel/ArcReel/commit/756921b87611ee2a95ae21c0d9cee6e3988ec801)), closes [#3638](https://github.com/ArcReel/ArcReel/issues/3638)
+* **server:** /health 返回镜像构建 commit，供部署实例确认运行版本 ([4cb91e1](https://github.com/ArcReel/ArcReel/commit/4cb91e12b285819f57c0ade6aed43c1fd014bd4d))
+* **settings:** 启动时不再按写死的映射改写设置里的旧型号，引用处改为提示下线或不可用 ([0e3b7a2](https://github.com/ArcReel/ArcReel/commit/0e3b7a216922c00ef58a02fc4752a3fed53c956a)), closes [#3626](https://github.com/ArcReel/ArcReel/issues/3626)
+* **settings:** 设置页对所有供应商模型展示生效能力，官方收录的只读，图片模型显示参考图上限，未声明的数值显示「未收录」 ([1a2d6f2](https://github.com/ArcReel/ArcReel/commit/1a2d6f2ff77cc7e313d13cfd1f3164d4c0bbd733)), closes [#3648](https://github.com/ArcReel/ArcReel/issues/3648)
+* **settings:** 选中的模型即将下线或已下线时，设置与项目里就地提示下线日期与官方后继，后继可用时一键切换 ([239b907](https://github.com/ArcReel/ArcReel/commit/239b907f56aae4bcc719143a519f4bb3e5043a33)), closes [#3623](https://github.com/ArcReel/ArcReel/issues/3623)
+* **storage:** 手动上传分镜图、角色衍生图与宫格图，以及从供应商素材库导入的图片，按存储选择保存到本地或对象存储 ([6e378e4](https://github.com/ArcReel/ArcReel/commit/6e378e44eb91f719bdcf79f3fc6b106fde43550b)), closes [#3650](https://github.com/ArcReel/ArcReel/issues/3650)
+* **storage:** 设置页可以把新增图片的保存位置切到对象存储，默认本地，切回本地只影响之后的新图片 ([5e63173](https://github.com/ArcReel/ArcReel/commit/5e6317380f01ffa5898cf1a4c84d7a0ac673a667)), closes [#3571](https://github.com/ArcReel/ArcReel/issues/3571)
+* **storage:** 资产图可经正式提交保存到对象存储，清理本地工作文件后预览、缩略图与版本切换从远端取回 ([15dbf1d](https://github.com/ArcReel/ArcReel/commit/15dbf1ddd60b3b52cd74e113b74f8d4c847324cc)), closes [#3566](https://github.com/ArcReel/ArcReel/issues/3566)
+* **storage:** 远端图片可用于图片编辑、分镜与视频生成，新生成的图片按存储选择保存到远端，清理缓存不改变时效与规划 ([d945dea](https://github.com/ArcReel/ArcReel/commit/d945dea70fd39ebe8ddbdc90bf1e26a01988c84e)), closes [#3567](https://github.com/ArcReel/ArcReel/issues/3567)
+* **storage:** 远端图片版本可从回收站恢复回原对象，正式对象在仍有版本、回收站或其他引用时保留，彻底删除后统一回收 ([b56e387](https://github.com/ArcReel/ArcReel/commit/b56e3879c31397f8f5a35e725b1d343e05993d16)), closes [#3568](https://github.com/ArcReel/ArcReel/issues/3568)
+* **versions:** 每次提交的图片成为有稳定身份与内容摘要的内容版本，恢复前校验快照 ([e0be234](https://github.com/ArcReel/ArcReel/commit/e0be234ed713eb70cd827be955ae6b15c8c9f037)), closes [#3560](https://github.com/ArcReel/ArcReel/issues/3560)
+* **video:** 视频的首尾帧、参考图与参考音频按模型条目与调用通道两侧求值，后端不再按型号名声明输入能力 ([a36e24f](https://github.com/ArcReel/ArcReel/commit/a36e24f678c8ee1b6ae6e740153b093f55b3636d)), closes [#3639](https://github.com/ArcReel/ArcReel/issues/3639)
+
+
+### 🐛 Bug 修复
+
+* **asset-library:** 修复素材导入保真与界面并发状态 ([bf3b768](https://github.com/ArcReel/ArcReel/commit/bf3b768d8c95a9c341aa53b759106fa7ae3e13ae))
+* **asset-library:** 素材库账号换成另一个云账号的 Access Key 后，不再选用或推进原账号的素材关联 ([9c9a63b](https://github.com/ArcReel/ArcReel/commit/9c9a63b749e7aec1166ee78ad4d2d5de26776f9e)), closes [#3562](https://github.com/ArcReel/ArcReel/issues/3562)
+* **asset-library:** 素材库集成与审查修复，导入与入库更稳，供应商视频请求按绑定条目构造 ([e8b9393](https://github.com/ArcReel/ArcReel/commit/e8b93930b920f04c4f5636bff0911e86d1c0e4b5))
+* **asset-library:** 素材引用按模型条目认定，提交前的检查、批量预览与报价同样指出不可用的关联 ([5ed9cc4](https://github.com/ArcReel/ArcReel/commit/5ed9cc47a31c36e83746647607fe9db7caa45bc9)), closes [#3563](https://github.com/ArcReel/ArcReel/issues/3563)
+* **billing:** 绑定条目的视频模型按关联的模型预估、报价与计量，与官方模型一致 ([031ef0b](https://github.com/ArcReel/ArcReel/commit/031ef0b6125f319fb945f19d59ce89f950398d32)), closes [#3652](https://github.com/ArcReel/ArcReel/issues/3652)
+* **capabilities:** 测试连接与生产出图共用同一道图片能力校验，设置页按服务端给出的维度顺序展示生效能力，用户文档改写能力取值规则 ([13051ca](https://github.com/ArcReel/ArcReel/commit/13051ca5d310c98c3fcf4daf2bac9a6fa24bcf2c))
+* **catalog:** 用户停用了内置供应商的默认模型时，裸供应商覆盖、缺模型的任务与装配都不再补它 ([60ac817](https://github.com/ArcReel/ArcReel/commit/60ac817a31c5fbb15ac3edb6d6c43e6836cd5c81)), closes [#3621](https://github.com/ArcReel/ArcReel/issues/3621)
+* **catalog:** 目录数据校验拦下参考音频总时长为负或非有限、质量档为空，以及接受参考音频但数量上限为 0 的条目 ([690fd7f](https://github.com/ArcReel/ArcReel/commit/690fd7f459fb05d09f593fb1781c0741629a1079))
+* **custom-provider:** 模型关联模型目录条目后，参考图上限等视频通道能力按关联的模型取得 ([9977454](https://github.com/ArcReel/ArcReel/commit/997745461cee77070054090828f55d299f5d0c45)), closes [#3563](https://github.com/ArcReel/ArcReel/issues/3563)
+* **file-view:** 清理缓存后远端历史版本仍可在文件视图列出、预览与删除，Agent 删除同样可用 ([169fd69](https://github.com/ArcReel/ArcReel/commit/169fd69f48992ed2d29ef4b698284ea7148bc484)), closes [#3651](https://github.com/ArcReel/ArcReel/issues/3651)
+* **generation:** worker 主循环单轮出错不再让整个 worker 退出 ([#3659](https://github.com/ArcReel/ArcReel/issues/3659)) ([2a88b03](https://github.com/ArcReel/ArcReel/commit/2a88b03a5d9ae2ec53ecc7ea51e527966633aba4))
+* **generation:** 关停日期前已提交的视频任务，服务重启后续跑照常取回结果，不再报模型已下线 ([de54d01](https://github.com/ArcReel/ArcReel/commit/de54d0113933774489213c10666f14ee7a839871)), closes [#3668](https://github.com/ArcReel/ArcReel/issues/3668)
+* **object-storage:** 两个管理员同时首次保存对象存储连接时只会建出一条连接，后到的请求按更新那一条处理 ([0a677c3](https://github.com/ArcReel/ArcReel/commit/0a677c3e3ec2ea0c1d2377fb997ac2ffe8bfccf1)), closes [#3653](https://github.com/ArcReel/ArcReel/issues/3653)
+* **providers:** 供应商简介只写平台是什么，取自有来源的描述，去掉会过时的模型版本 ([#3609](https://github.com/ArcReel/ArcReel/issues/3609)) ([b81c969](https://github.com/ArcReel/ArcReel/commit/b81c969960981afb2968fdbf34272206a35d5f4e))
+* **skills:** pr-ai-review-loop 改用 REST，只放行 REST 的云端会话也能运行审查循环 ([2eab0c1](https://github.com/ArcReel/ArcReel/commit/2eab0c14c88c3e51c40402d15de26a44886e0c2d)), closes [#3575](https://github.com/ArcReel/ArcReel/issues/3575)
+* **source:** EPUB 解析改用标准库实现，移除 AGPL 依赖 ebooklib ([#3631](https://github.com/ArcReel/ArcReel/issues/3631)) ([2b50e8c](https://github.com/ArcReel/ArcReel/commit/2b50e8c02f667379099e60116d2af5016c4ffd3c))
+* **storage:** 远端图片在缓存清理、提交结算、项目删除与覆盖导入、全局库并发换图与删除、同字节并发保存的交错中不再被误删、留存或锁住连接 ([4deb0b0](https://github.com/ArcReel/ArcReel/commit/4deb0b096b9bf05470f71f11eba6f6311ada1b58)), closes [#3559](https://github.com/ArcReel/ArcReel/issues/3559)
+* **video:** 绑定条目的视频模型按关联的模型构造实际请求，不再与声明的能力不一致 ([2abb3f5](https://github.com/ArcReel/ArcReel/commit/2abb3f5d0984000e2af2841e2845caa7d3cc97cc)), closes [#3563](https://github.com/ArcReel/ArcReel/issues/3563)
+
+
+### 📚 文档
+
+* **catalog:** 条目说明里 discontinued 的置真时机改为关停当天生效，与 ADR 和 README 一致 ([da48c1e](https://github.com/ArcReel/ArcReel/commit/da48c1ed0f562d42bd295fb838128115a03dd577))
+* **glossary:** 调用端点适用于所有供应商模型，下线时间不同的变体各自是一个条目 ([#3630](https://github.com/ArcReel/ArcReel/issues/3630)) ([b39ac42](https://github.com/ArcReel/ArcReel/commit/b39ac421952f82e2ac798100fcb40afb6cc094eb))
+* **project-migrations:** v1→v2 供应商归一化迁移改为长期保留，撤销删除时限 ([0869388](https://github.com/ArcReel/ArcReel/commit/0869388ca1750969c4e94453302a84dcd4c40864)), closes [#1977](https://github.com/ArcReel/ArcReel/issues/1977)
+* **triage:** 按状态重写无人值守 triage，外部 PR 的方向改由维护者在 PR 上判断 ([#3682](https://github.com/ArcReel/ArcReel/issues/3682)) ([ac90e09](https://github.com/ArcReel/ArcReel/commit/ac90e091857f58f87b6da239f07d10363d13c07c))
+* **triage:** 状态标签按下一步由谁行动来定，等作者修改的外部 PR 不再进维护者队列 ([#3683](https://github.com/ArcReel/ArcReel/issues/3683)) ([2a5d603](https://github.com/ArcReel/ArcReel/commit/2a5d603f5933abef79537986306225324b499e5a))
+* 明确素材存储与供应商关联的设计边界 ([#3581](https://github.com/ArcReel/ArcReel/issues/3581)) ([edbfbac](https://github.com/ArcReel/ArcReel/commit/edbfbac50aa064f94da4af381ca603bc5f17ba93))
+
 ## [0.35.0](https://github.com/ArcReel/ArcReel/compare/v0.34.0...v0.35.0) (2026-11-01)
 
 
